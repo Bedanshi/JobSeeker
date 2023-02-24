@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Employee Registration</title>
+    <link rel="stylesheet" href="register2.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example">
+    <!-- Example Code -->
+   
+    <div class="main">
+      <div class="navbar">
+          <h2 class="logo">JOBSEEKER</h2>
+              <ul>
+                  <li><a  href="index.html">HOME</a></li>
+                  <li><a href="#">REGISTER</a></li>
+                  <li><a href="#">LOGIN</a></li>
+                  <li><a href="#">ABOUT US</a></li>
+                  <li><a href="#">BLOGS</a></li>
+                  <li><a href="#">CONTACT US</a></li>
+
+              </ul>
+                  <input class="srch" type="text" name="" placeholder="Type To text">
+                  <a href="#"> <button class="btn">Search</button></a>
+      </div> 
+
+        <div class="content">
+            <h1>CREATE YOU EMPLOYER ACCOUNT</h1>
+                <hr color="blue" style="width: 500px"></hr>
+            <h3 style="color: black;">
+              #1 Job Site of Nepal
+              Alexa Ranking, Google Analytics,<br> Social Medias, Jobseeker and Employer have always put<br> us on top!<br>
+            </h3>
+          
+            <p class="par">Fill the basic information and start recruiting now!
+
+            </br></p>
+
+                <button class="cn"><a href="#">View More Info</a></button>
+            <form  action="register2.php" method="post" novalidate>
+                <div class="form">
+                    <h2>Employee Registration</h2>
+                    
+                    <input type="text" name="name" placeholder=" Person Name*" >
+                    <input name="number" type="text" placeholder="Mobile Number*" pattern="[0-9]{10}" required>
+
+                    <input type="email" name="email" placeholder="Email Address*"  required>
+                    <input type="password" id="pass"name="password_hash" placeholder="Password*" >
+                    <input type="password" id="confirmpass" name="passwordConfirmation" placeholder="Confirm Password*" >
+        
+  
+                  <button type = "submit"  style="width: 150px; height:45px">Sign up</button>  
+              
+
+                      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                    
+                    
+
+                 </div>
+              </form>
+         </div>
+            
+  
+    
+        </div>
+  
+        <script>
+          function passwordConfirmation() {
+            var password = document.getElementsByName("password_hash")[0].value;
+            var confirmPassword = document.getElementsByName("passwordConfirmation")[0].value;
+          
+            if (password == "") {
+              alert("Error: The password field is empty.");
+            } else if (password != confirmPassword) {
+              alert("Error: Passwords do not match.");
+            }
+          }
+          </script>
+    
+    
+    
+</body>
+</html>
