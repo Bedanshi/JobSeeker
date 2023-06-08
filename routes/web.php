@@ -89,3 +89,6 @@ Route::post('/logout', function () {
 
 Route::get('/company/login', [CompanyController::class, 'CompanyController@login'])->name('company.login');
 Route::get('/account/applied-jobs', [AccountController::class, 'appliedJobs'])->name('account.appliedJobs');
+Route::get('/about-us', function () {
+  return view('aboutUs');
+})->name('aboutUs');
