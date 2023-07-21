@@ -52,18 +52,11 @@ class AccountController extends Controller
 
     public function becomeEmployer(Request $request)
     {
-        $submittedKeyword = $request->input('keyword');
-        $keyword = "employer4317"; // Replace "your-keyword" with the actual keyword you want to use
+        // Assuming you want to set the user role to 'author' to make them an employer
+        $user = auth()->user();
 
-        if ($submittedKeyword != $keyword) {
-            Alert::toast('Incorrect keyword. Please try again.', 'error');
-            return redirect()->back();
-        }
-
-        $user = User::find(auth()->user()->id);
-        $user->removeRole('user');
-        $user->assignRole('author');
-        return redirect()->route('account.authorSection');
+        Alert::toast('Congratulations! You are now an employer.', 'success');
+        return redirect()->route('account.index'); // Redirect the user to their account page or wherever you want
     }
 
     // ... Rest of your existing methods ...
