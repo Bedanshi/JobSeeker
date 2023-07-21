@@ -21,8 +21,8 @@ class RolePermissionSeeder extends Seeder
             DB::table('roles')->insert([
                 'name' => $role,
                 'guard_name' => 'web',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
 
@@ -35,8 +35,8 @@ class RolePermissionSeeder extends Seeder
             DB::table('permissions')->insert([
                 'name' => $permission,
                 'guard_name' => 'web',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
 
