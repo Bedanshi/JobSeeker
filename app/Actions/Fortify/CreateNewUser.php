@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Rules\AlphaWithSpaces;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -22,7 +23,7 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'name' => ['required', 'string', 'alpha', 'max:255', 'unique:users'], // Add 'alpha' rule for username validation
+            'name' => ['required', 'string',  'max:255',  new AlphaWithSpaces], // Add 'alpha' rule for username validation
 
             'password' => $this->passwordRules(),
         ])->validate();

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Role;
 use App\Models\AppliedJob;
 
 
@@ -50,13 +51,21 @@ class AccountController extends Controller
     // ...
 
 
+
     public function becomeEmployer(Request $request)
     {
-        // Assuming you want to set the user role to 'author' to make them an employer
+        // Get the authenticated user
         $user = auth()->user();
 
+        // Check if the 'author' role exists; if not, create it
+        $authorRole = Role::firstOrCreate(['name' => 'author']);
+
+        // Assign the 'author' role to the user
+        $user->assignRole($authorRole);
+
         Alert::toast('Congratulations! You are now an employer.', 'success');
-        return redirect()->route('account.index'); // Redirect the user to their account page or wherever you want
+
+        return redirect()->route('account.becomeEmployer'); // Redirect the user to their account page or wherever you want
     }
 
     // ... Rest of your existing methods ...
