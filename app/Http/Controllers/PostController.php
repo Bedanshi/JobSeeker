@@ -96,7 +96,7 @@ class PostController extends Controller
         return $request->validate([
             'job_title' => 'required|min:3',
             'job_level' => 'required',
-            'vacancy_count' => 'required|int',
+            'vacancy_count' => 'required|int|min:0|max:100',
             'employment_type' => 'required',
             'job_location' => 'required',
             'salary' => 'required',

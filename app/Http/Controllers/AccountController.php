@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Role;
+
 use App\Models\AppliedJob;
 
 
@@ -58,10 +59,11 @@ class AccountController extends Controller
         $user = auth()->user();
 
         // Check if the 'author' role exists; if not, create it
-        $authorRole = Role::firstOrCreate(['name' => 'author']);
+        $role = Role::firstOrCreate(['name' => 'author']);
+
 
         // Assign the 'author' role to the user
-        $user->assignRole($authorRole);
+        $user->assignRole($role);
 
         Alert::toast('Congratulations! You are now an employer.', 'success');
 

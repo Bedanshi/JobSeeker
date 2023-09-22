@@ -35,13 +35,14 @@
                 </div>
                 <div class="col-md-6">
                   <label for="">No of vacancy</label>
-                  <input type="number" class="form-control @error('vacancy_count') is-invalid @enderror" name="vacancy_count" value="{{ old('vacancy_count') }}" required >
+                  <input type="number" min="0" max="100" class="form-control @error('vacancy_count') is-invalid @enderror" name="vacancy_count" value="{{ old('vacancy_count') }}" required inputmode="numeric">
                   @error('vacancy_count')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
-                </div>
+              </div>
+              
               </div>
             </div>
        
@@ -79,10 +80,16 @@
                       </span>
                   @enderror
                 </div>
-                <div class="col-md-6">
-                  <label for="">Deadline</label>
-                  <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') }}" required >
-                </div>
+              <div class="col-md-6">
+                  <label for="deadline">Deadline</label>
+                  <input type="date" id="deadline" name="deadline" class="form-control @error('deadline') is-invalid @enderror" min="{{ date('Y-m-d') }}" required>
+                  @error('deadline')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+              
               </div>
             </div>
 

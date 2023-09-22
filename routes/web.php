@@ -9,6 +9,7 @@ use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\savedJobController;
+
 use Illuminate\Support\Facades\Route;
 
 
